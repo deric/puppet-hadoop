@@ -50,6 +50,8 @@ class hadoop::params {
   $dfs_namenode_plugins                  = hiera('dfs_namenode_plugins', 'org.apache.hadoop.thriftfs.NamenodePlugin')
   $dfs_datanode_plugins                  = hiera('dfs_datanode_plugins', 'org.apache.hadoop.thriftfs.DatanodePlugin')
   $dfs_thrift_address                    = hiera('dfs_thrift_address', '0.0.0.0:9090')
+  $dfs_monitor_role_password             = hiera('dfs_monitor_role_password', 'passw0rd')
+  $dfs_control_role_password             = hiera('dfs_control_role_password', 'passw0rd')
 
   #_ MAPRED SITE _#
   $mapred_job_tracker                                  = hiera('mapred_job_tracker', 'replace.me:8021')

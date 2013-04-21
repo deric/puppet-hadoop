@@ -106,4 +106,11 @@ class hadoop::config {
     mode    => '0644'
   }
 
+  file { "/etc/hadoop-0.20/${hadoop::params::hadoop_conf_name}/jmxremote.password.hdfs":
+    content => template('hadoop/jmxremote.password.hdfs.erb'),
+    owner   => 'hdfs',
+    group   => 'hadoop',
+    mode    => '0600'
+  }
+
 }
