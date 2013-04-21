@@ -130,16 +130,16 @@ class hadoop::params {
   $env_include                   = hiera('env_include', [ 'RUN_COMMAND=$(echo $HADOOP_LOGFILE|cut -d"-" -f3|tr "[a-z]" "[A-Z]")', 'eval RUN_USER=\"\$HADOOP_${RUN_COMMAND}_USER\"', 'JMX_SUFFIX="${RUN_USER:+.}$RUN_USER"' ] )
 
   #_ METRICS _#
-  $dfs_class      = hiera('dfs_class', 'org.apache.hadoop.hbase.metrics.file.TimeStampingFileContext')
+  $dfs_class      = hiera('dfs_class', 'org.apache.hadoop.metrics.ganglia.GangliaContext31')
   $dfs_period     = hiera('dfs_period', '60')
   $dfs_opts       = hiera('dfs_opts', { 'dfs.fileName' => '/var/log/hadoop/dfs-metrics.out' })
-  $mapred_class   = hiera('mapred_class', 'org.apache.hadoop.hbase.metrics.file.TimeStampingFileContext')
+  $mapred_class   = hiera('mapred_class', 'org.apache.hadoop.metrics.ganglia.GangliaContext31')
   $mapred_period  = hiera('mapred_period', '60')
   $mapred_opts    = hiera('mapred_opts', { 'mapred.fileName' => '/var/log/hadoop/mapred-metrics.out' })
-  $jvm_class      = hiera('jvm_class', 'org.apache.hadoop.hbase.metrics.file.TimeStampingFileContext')
+  $jvm_class      = hiera('jvm_class', 'org.apache.hadoop.metrics.ganglia.GangliaContext31')
   $jvm_period     = hiera('jvm_period', '60')
   $jvm_opts       = hiera('jvm_opts', { 'jvm.fileName' => '/var/log/hadoop/jvm-metrics.out'})
-  $rpc_class      = hiera('rpc_class', 'org.apache.hadoop.hbase.metrics.file.TimeStampingFileContext')
+  $rpc_class      = hiera('rpc_class', 'org.apache.hadoop.metrics.ganglia.GangliaContext31')
   $rpc_period     = hiera('rpc_period', '60')
   $rpc_opts       = hiera('rpc_opts', { 'rpc.fileName' => '/var/log/hadoop/rpc-metrics.out' })
 
