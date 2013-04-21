@@ -21,7 +21,9 @@ class hadoop::datanode {
 
   service { 'hadoop-0.20-datanode':
     require => Package['hadoop-0.20-datanode'],
-    enable  => true
+    enable  => true,
+    ensure    => running,
+    hasstatus => true,
   }
 
 }

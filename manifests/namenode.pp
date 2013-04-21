@@ -21,7 +21,9 @@ class hadoop::namenode {
 
   service { 'hadoop-0.20-namenode':
     require => Package['hadoop-0.20-namenode'],
-    enable  => true
+    enable  => true,
+    ensure    => running,
+    hasstatus => true,
   }
 
 }
